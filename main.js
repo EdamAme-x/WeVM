@@ -28,6 +28,12 @@ window.addEventListener('load', async () => {
   webcontainerInstance = await WebContainer.boot();
   await webcontainerInstance.mount(files);
 
+  webcontainerInstance.on('server-ready', (port, url) => {
+    terminal.writeln(" ")
+    terminal.writeln(`[!] SevrerReady: ${url}`)
+    terminal.writeln(" ")
+  });
+
   const shellProcess = await startShell(terminal);
   window.addEventListener('resize', () => {
     fitAddon.fit();
