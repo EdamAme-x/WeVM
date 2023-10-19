@@ -4,27 +4,17 @@ export const files = {
   'index.js': {
     file: {
       contents: `
-import express from 'express';
-const app = express();
-const port = 3000;
-  
-app.get('/', (req, res) => {
-    res.send('Welcome to a WebContainers app! 🥳');
-});
-  
-app.listen(port, () => {
-    console.log(\`App is live at http://localhost:\${port}\`);
-});`,
+console.log("Hello world! 🔥")
+      `,
     },
   },
   'package.json': {
     file: {
       contents: `
           {
-            "name": "example-app",
+            "name": "init-app",
             "type": "module",
             "dependencies": {
-              "express": "latest",
               "nodemon": "latest"
             },
             "scripts": {
