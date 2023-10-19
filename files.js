@@ -5,7 +5,7 @@ export const files = {
     file: {
       contents: `
 console.log("Hello world! 🔥")
-      `,
+`,
     },
   },
   'package.json': {
