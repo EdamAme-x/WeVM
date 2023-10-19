@@ -4,6 +4,7 @@ import { files } from './files';
 import { Terminal } from 'xterm';
 import 'xterm/css/xterm.css';
 import { FitAddon } from 'xterm-addon-fit';
+import { $ } from "./Xuery.min";
 
 /** @type {import('@webcontainer/api').WebContainer}  */
 let webcontainerInstance;
@@ -17,6 +18,9 @@ window.addEventListener('load', async () => {
   });
   terminal.loadAddon(fitAddon);
   terminal.open(terminalEl);
+  terminal.writeln(" ")
+  terminal.writeln(" Welcome to WeVM! 🔥 ")
+  terminal.writeln(" ")
 
   fitAddon.fit();
 
@@ -61,17 +65,9 @@ async function startShell(terminal) {
   return shellProcess;
 }
 
-/**
- * @param {string} content
- */
-
-async function writeIndexJS(content) {
-  await webcontainerInstance.fs.writeFile('/index.js', content);
-}
-
-document.querySelector('#app').innerHTML = `
-  <div class="terminal"></div>
-`;
+$("#app").in(div({
+  class: "terminal"
+}, ""))
 
 /** @type {HTMLTextAreaElement | null} */
-const terminalEl = document.querySelector('.terminal');
+const terminalEl = $(".terminal").el;
